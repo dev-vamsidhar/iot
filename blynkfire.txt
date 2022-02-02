@@ -1,0 +1,37 @@
+#include <ESP8266WiFi.h>
+#define BLYNK_PRINT Serial    // Comment this out to disable prints and save space
+#include <BlynkSimpleEsp8266.h>
+char auth[] = "z8mqJjCQ5HvaBJw5JR3TcqJuNa715Nuq";
+char ssid[] = "Madhu";
+char pass[] = "chikku@26";
+#define flamepin D1 // Input for HC-S501
+int flameValue; // Place to store read PIR Value
+void setup()
+{
+  Serial.begin(115200);
+  delay(10);
+  Blynk.begin(auth, ssid, pass);
+
+  pinMode(flamepin, INPUT);
+}
+
+void loop()
+{
+  getflameValue();
+  Blynk.run();
+}
+
+void getflameValue(void)
+{
+  flameValue = digitalRead(flamepin);
+  if (flameValue)
+  {
+    Serial.println("==> flame is detected");
+    Blynk.notify("T==> flame is detected");  
+  }
+  else
+  {
+    Serial.println("==> flame is not detected");
+    Blynk.notify("T==> flame is not detected");  
+    }
+}
