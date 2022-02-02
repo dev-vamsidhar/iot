@@ -1,1 +1,1 @@
-<h1>Copy kotakunda rayachu kadha.. em cheyalem pina unna codes aina correct ga coopy paste chesukondi</h1>
+<h1>Not responsible for any wrong excution of code and damage of equipment</h1>
